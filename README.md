@@ -6,7 +6,7 @@ A pet project showing how to provide JWT using a Ktor service.
 - Utils
 - JWT
 
-### **Server Configuration**
+### **Server Configuration** :wrench:
 We first fire off our server with a [Netty engine](https://netty.io/) configuration. 
 It is in this server's application pipeline that we shall add our functionalities/ [plugins](https://ktor.io/docs/plugins.html#dependency).
 
