@@ -7,6 +7,7 @@ import io.ktor.features.*
 import io.ktor.gson.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import io.ktor.sessions.*
 import kotlinx.coroutines.runBlocking
 import models.user.User
 import routes.auth.authRouting
@@ -24,7 +25,7 @@ fun Application.module() {
     val config = HoconApplicationConfig(ConfigFactory.load())
     val tokenManager = TokenManager(config)
     install(Authentication) {
-        jwt() {
+        jwt {
             verifier(tokenManager.verifyToken())
             realm = config.property("realm").getString()
             validate { jwtCredential ->
